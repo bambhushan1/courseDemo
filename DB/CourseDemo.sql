@@ -10,7 +10,7 @@ CREATE TABLE `demodb`.`courses` (
 
 
 CREATE TABLE `demodb`.`roles` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NOT NULL,
  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
  `deleted` TIMESTAMP NULL,
@@ -19,7 +19,7 @@ CREATE TABLE `demodb`.`roles` (
 
 
 CREATE TABLE `demodb`.`users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NOT NULL,
   `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` TIMESTAMP NULL,
@@ -27,7 +27,7 @@ CREATE TABLE `demodb`.`users` (
 
 
 CREATE TABLE `demodb`.`users_courses` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL  AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `course_id` INT NOT NULL,
   `role_id` INT NOT NULL,
