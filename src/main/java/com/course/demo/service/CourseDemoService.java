@@ -14,6 +14,12 @@ import com.course.demo.entity.Role;
 import com.course.demo.entity.User;
 import com.course.demo.vo.UserVO;
 
+/**
+ * This class is the main Service class of Course Demo application
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 @Service
 public class CourseDemoService implements ICourseDemoService {
 
@@ -32,6 +38,7 @@ public class CourseDemoService implements ICourseDemoService {
 	// 2.1). Add a new student along with their course registrations.
 	@Override
 	public User addNewUser(UserVO userVO) {
+		//TODO: Validate Create user request 
 		User newUser = userDAO.createUser(userVO.getName());
 		if(newUser != null && userVO.getCourseIds() != null && userVO.getCourseIds().size() > 0) {
 			List<Course> courses = courseDAO.getCoursesByIds(userVO.getCourseIds());
@@ -46,6 +53,7 @@ public class CourseDemoService implements ICourseDemoService {
 	//2.2). Delete a student.
 	@Override
 	public boolean deleteUser(Integer userId) {
+		//TODO: Validate the request
 		User user = userDAO.getUserById(userId);
 		if(user!= null) {
 			userCourseDAO.removeUserCourses(user);
@@ -58,6 +66,7 @@ public class CourseDemoService implements ICourseDemoService {
 	//2.3).Get all students, sorted by their name, for a given course with course name as input.
 	@Override
 	public List<User> getAllStudents(String courseName) {
+		//TODO: Validate the course
 		List<User>  users = null;
 		if(courseName != null)		
 			users =  userCourseDAO.getCourseUsersByCourseName(courseName);
@@ -67,6 +76,7 @@ public class CourseDemoService implements ICourseDemoService {
 	//2.5). Get all students who don’t register for a given course  
 	@Override
 	public List<User> getAllUnEnrolledStudents(String courseName) {
+		//TODO: Validate the course
 		List<User>  users = null;
 		if(courseName != null)		
 			users =  userDAO.getAllUnEnrollerdUsers(courseName);

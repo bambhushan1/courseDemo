@@ -20,7 +20,12 @@ import com.course.demo.entity.Role;
 import com.course.demo.entity.User;
 import com.course.demo.entity.UserCourse;
 import com.course.demo.exception.CourseDemoException;
-
+/**
+ * This class is the DAO class used to handle Users courses of the application
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 @Repository
 public class UserCourseDAO implements IUserCourseDAO {
 
@@ -41,7 +46,7 @@ public class UserCourseDAO implements IUserCourseDAO {
 				criteria.createAlias("course", "courseAlias");
 				criteria.createAlias("role", "roleAlias");
 				criteria.add(Restrictions.eq("courseAlias.name", courseName));
-				criteria.add(Restrictions.eq("role.name", "student"));
+				criteria.add(Restrictions.eq("roleAlias.name", "student"));
 				criteria.add(Restrictions.isNull("deleted"));
 				ProjectionList projectionList = Projections.projectionList();
 				projectionList.add(Projections.property("userAlias.id"));
@@ -66,12 +71,13 @@ public class UserCourseDAO implements IUserCourseDAO {
 		boolean result = false;
 		try {
 			session = sessionFactory.openSession();
-			session.beginTransaction();
+			Transaction transaction = session.beginTransaction();
 			try {
 				session = sessionFactory.openSession();
 				SQLQuery createSQLQuery = session.createSQLQuery("UPDATE users_courses SET deleted=now() WHERE user_id = :userId AND deleted IS NULL");
 				createSQLQuery.setParameter("userId", user.getId());
 				createSQLQuery.executeUpdate();
+				transaction.commit();
 				result = true;
 			}finally {
 				if(session != null) session.close();

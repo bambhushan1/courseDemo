@@ -19,6 +19,12 @@ import com.course.demo.entity.User;
 import com.course.demo.entity.UserCourse;
 import com.course.demo.exception.CourseDemoException;
 
+/**
+ * This class is the DAO class used to handle Users of the application
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 @Repository
 public class UserDao implements IUserDAO {
 

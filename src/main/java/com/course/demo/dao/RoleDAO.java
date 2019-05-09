@@ -1,21 +1,21 @@
 package com.course.demo.dao;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.ProjectionList;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.course.demo.entity.Role;
-import com.course.demo.entity.User;
 import com.course.demo.exception.CourseDemoException;
 
+/**
+ * This class is the DAO class used to handle Roles of the application
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 @Repository
 public class RoleDAO implements IRoleDAO {
 

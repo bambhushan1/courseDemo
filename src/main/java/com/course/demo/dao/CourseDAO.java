@@ -15,6 +15,12 @@ import org.springframework.stereotype.Repository;
 import com.course.demo.entity.Course;
 import com.course.demo.exception.CourseDemoException;
 
+/**
+ * This class is the DAO class used to handle Courses of the application
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 @Repository
 public class CourseDAO implements ICourseDAO {
 
@@ -53,7 +59,6 @@ public class CourseDAO implements ICourseDAO {
 		List<Course> allCourses = null;
 		try {
 			session = sessionFactory.openSession();
-			session.beginTransaction();
 			try {
 				session = sessionFactory.openSession();
 				Criteria criteria = session.createCriteria(Course.class);

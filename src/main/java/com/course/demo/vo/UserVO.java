@@ -1,7 +1,12 @@
 package com.course.demo.vo;
 
 import java.util.List;
-
+/**
+ * This class is designed to get new user request
+ *  
+ * @author Bhushan Mahajan
+ *
+ */
 public class UserVO {
 
 	private String name;
